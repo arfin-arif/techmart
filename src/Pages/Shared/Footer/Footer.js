@@ -30,7 +30,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </div>
             </div>
-            <p class="text-sm text-center text-black">© Copyright 2021. All Rights Reserved.</p>
+            <p className="text-sm text-center text-black">© Copyright 2021. All Rights Reserved.</p>
         </footer>
     );
 };
