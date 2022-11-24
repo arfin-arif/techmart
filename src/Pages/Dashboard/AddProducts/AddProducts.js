@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
 const AddProducts = () => {
+    const { user } = useContext(AuthContext)
     const { handleSubmit, register, formState: { errors } } = useForm()
 
     const handleAddProducts = (data) => {
@@ -9,8 +11,11 @@ const AddProducts = () => {
         const product = {
             name: data.name,
             category_id: data.category,
+            seller: user.displayName,
             price: data.price,
+            buyingPrice: data.buyingPrice,
             condition: data.condition,
+            yearsOfUse: data.yearsOfUse,
             phone: data.phone,
             location: data.location,
             description: data.description,
@@ -53,14 +58,24 @@ const AddProducts = () => {
                         {...register("name", { required: " * Name is Required" })} />
                 </div>
                 <div className="form-control w-full ">
-                    <label className="label"><span className="label-text"> price</span></label>
+                    <label className="label"><span className="label-text">Selling price</span></label>
                     <input type='text' className='input input-bordered w-full'
                         {...register("price", { required: " * price is Required" })} />
+                </div>
+                <div className="form-control w-full ">
+                    <label className="label"><span className="label-text">Buying price</span></label>
+                    <input type='text' className='input input-bordered w-full'
+                        {...register("buyingPrice", { required: " * buyingPrice is Required" })} />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text"> condition</span></label>
                     <input type='text' className='input input-bordered w-full'
                         {...register("condition", { required: " * condition is Required" })} />
+                </div>
+                <div className="form-control w-full ">
+                    <label className="label"><span className="label-text"> Years Of Use</span></label>
+                    <input type='number' className='input input-bordered w-full'
+                        {...register("yearsOfUse", { required: " * yearsOfUse is Required" })} />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text"> phone</span></label>
