@@ -13,7 +13,7 @@ const Login = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
-    const form = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/'
 
 
     const handleEmailLogin = data => {
@@ -22,8 +22,7 @@ const Login = () => {
         logIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
-
-
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message)
@@ -31,7 +30,10 @@ const Login = () => {
             })
     }
     const handleGoogleLogin = () => {
-        googleLogin(provider)
+        googleLogin(provider).then(result => {
+            console.log(result);
+            navigate('/')
+        })
     }
 
     return (

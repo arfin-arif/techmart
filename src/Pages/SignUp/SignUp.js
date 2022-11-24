@@ -31,7 +31,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        storeUserInfo(data.name, data.email);
+                        storeUserInfo(data.name, data.email, data.role);
                     })
                     .catch(err => console.log(err))
 
@@ -42,8 +42,8 @@ const SignUp = () => {
             })
     }
 
-    const storeUserInfo = (name, email) => {
-        const user = { name, email };
+    const storeUserInfo = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -54,6 +54,7 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
+                // navigate('/')
             })
     };
 
@@ -94,14 +95,14 @@ const SignUp = () => {
                     <div className="form-control w-full max-w-xs">
                         <label className="label"><span className="label-text"> Register As</span></label>
                         <select    {...register("role")} className="select select-bordered w-full max-w-xs mb-5">
-                            <option selected>User</option>
+                            <option defaultValue >User</option>
                             <option >Seller</option>
 
                         </select>
                     </div>
 
 
-                    <input className='btn btn-accent w-full' value='Login' type="submit" />
+                    <input className='btn btn-accent w-full' value='Sign Up' type="submit" />
                     <p className='text-red-400'>{signUpError} </p>
                 </form>
                 <p>Already Have Account? <Link className='text-blue-500' to='/login'>Log In Now</Link></p>
