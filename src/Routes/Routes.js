@@ -1,5 +1,8 @@
+import CategoryWiseProducts from "../Pages/CategoryWiseProducts/CategoryWiseProducts";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import Statics from "../Pages/Statics/Statics";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
+
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -15,17 +18,21 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/',
-                element: <Home></Home>
+                path: '/login',
+                element: <Login></Login>
             },
-            // {
-            //     path: '/dashboard',
-            //     element: <Dashboard></Dashboard>
-            // },
-            // {
-            //     path: '/statics',
-            //     element: <Statics></Statics>
-            // },
+            {
+                path: '/signup',
+                element: <SignUp />
+            },
+            {
+                path: '/category/:id',
+                element: <CategoryWiseProducts />,
+                loader: ({ params }) => fetch(`http://localhost:5000/category?category_id=${params.id}`)
+
+            },
+
+
         ]
     }
 ]);

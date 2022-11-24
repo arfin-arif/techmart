@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Samsung",
+        "totalItems": 150,
+        "details": "Herr You will find all the Samsung phones ",
+        "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+        "title": "iPhone",
+        "totalItems": 150,
+        "details": "Herr You will find all the iPhones ",
+        "image": "https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437107.jpg?w=900&t=st=1669238835~exp=1669239435~hmac=76eedc4f0095967b6bda6f0f1f5fe2e5b77751e6d55a4840c120252669eb5c90"
+    },
+    {
+        "title": "Xiaomi",
+        "totalItems": 150,
+        "details": "Herr You will find all the Xiaomi Phones ",
+        "image": "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1666598531.28686121!348x348.png?f=webp"
+    },
+    {
+        "title": "Symphony",
+        "totalItems": 150,
+        "details": "Herr You will find all the Xiaomi Phones ",
+        "image": "https://www.symphony-mobile.com/storage/slides/YHSpnDuRxJI3uhu0n4iwxvdD5.png"
+    }
+]

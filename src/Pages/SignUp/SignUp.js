@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Statics = () => {
+const SignUp = () => {
     return (
         <div>
-            <h2>Statics</h2>
+            this sign
         </div>
     );
 };
 
-export default Statics;
+export default SignUp;
