@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 const AddProducts = () => {
     const { user } = useContext(AuthContext)
     const { handleSubmit, register, formState: { errors } } = useForm()
-
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
     const handleAddProducts = (data) => {
 
         const product = {
@@ -39,7 +42,7 @@ const AddProducts = () => {
             .then(result => {
                 console.log(result);
                 toast.success('Successfully added')
-
+                navigate('/myproduct')
             })
 
     }
