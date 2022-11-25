@@ -48,7 +48,7 @@ const ProductCard = ({ product, setProductInfo }) => {
                     </div>
                     <div className="flex">
                         <FaClock></FaClock>
-                        <h1 class="px-2 text-sm">{dateOfPost.slice(0, 10)}</h1>
+                        <h1 class="px-2 text-sm">{dateOfPost?.slice(0, 10)}</h1>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import React, { } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ const ProductCategories = () => {
             return data;
         }
     })
+
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
 

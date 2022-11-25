@@ -1,6 +1,7 @@
 import CategoryWiseProducts from "../Pages/CategoryWiseProducts/CategoryWiseProducts";
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <AddProducts />
+            },
+            {
+                path: '/myproduct',
+                element: <MyProducts />
             },
             {
                 path: '/category/:id',

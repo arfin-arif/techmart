@@ -11,7 +11,8 @@ const AddProducts = () => {
         const product = {
             name: data.name,
             category_id: data.category,
-            seller: user.displayName,
+            seller: user?.displayName,
+            sellerEmail: user?.email,
             price: data.price,
             buyingPrice: data.buyingPrice,
             condition: data.condition,
