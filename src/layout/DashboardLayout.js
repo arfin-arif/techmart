@@ -42,32 +42,34 @@ const DashboardLayout = () => {
                                             {/* <div className="flex items-center px-4 py-2 t" href="#">
                                                 <span className="mx-4 font-medium">Dashboard</span>
                                             </div> */}
+                                            <Link to='/dashboard/allsellers'>
+                                                <div className="flex items-center px-4 py-2 mt-5 " >
+                                                    <FaUserAlt></FaUserAlt>
+                                                    <span className="mx-4 font-medium"> All Seller </span>
+                                                </div>
+                                            </Link>
+                                            <Link to='/dashboard/allbuyers'>
+                                                <div className="flex items-center px-4 py-2 mt-5 " >
+                                                    <FaUserAlt></FaUserAlt>
+                                                    <span className="mx-4 font-medium">  All Buyers</span>
 
-                                            <div className="flex items-center px-4 py-2 mt-5 " >
-                                                <FaUserAlt></FaUserAlt>
-
-                                                <span className="mx-4 font-medium"><Link to='/dashboard/allsellers'> All Seller</Link> </span>
-                                            </div>
-
-                                            <div className="flex items-center px-4 py-2 mt-5 " >
-                                                <FaUserAlt></FaUserAlt>
-                                                <span className="mx-4 font-medium">  <Link to='/dashboard/allbuyers'> All Buyers</Link></span>
-
-                                            </div>
+                                                </div></Link>
                                         </>
                                     }
                                     {
                                         isSeller &&
-                                        <>
+                                        <><Link to='/dashboard/addproduct'>
                                             <div className="flex items-center px-4 py-2 mt-5 " >
                                                 <FaProductHunt></FaProductHunt>
-                                                <span className="mx-4 font-medium">  <Link to='/dashboard/addproduct'>Add Product </Link></span>
+                                                <span className="mx-4 font-medium">  Add Product </span>
                                             </div>
-                                            <div className="flex items-center px-4 py-2 mt-5 " >
-                                                <FaUserAlt></FaUserAlt>
-                                                <span className="mx-4 font-medium">  <Link to='/dashboard/myproduct'>My Product </Link></span>
-                                            </div>
-
+                                        </Link>
+                                            <Link to='/dashboard/myproduct'>
+                                                <div className="flex items-center px-4 py-2 mt-5 " >
+                                                    <FaUserAlt></FaUserAlt>
+                                                    <span className="mx-4 font-medium">  My Product </span>
+                                                </div>
+                                            </Link>
                                         </>
                                     }
 
@@ -76,8 +78,8 @@ const DashboardLayout = () => {
                         </div>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
