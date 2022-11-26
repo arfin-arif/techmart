@@ -9,6 +9,7 @@ import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
 
@@ -63,11 +64,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allsellers',
-                element: <SellerRoute><AllSellers /></SellerRoute>
+                element: <AdminRoute><AllSellers /></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <SellerRoute><AllBuyers /></SellerRoute>
+                element: <AdminRoute><AllBuyers /></AdminRoute>
             },
             {
                 path: '/dashboard/mybookings',
