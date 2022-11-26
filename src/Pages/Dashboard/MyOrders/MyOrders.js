@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyOrders = () => {
+    const { user } = useContext(AuthContext)
     const { data: bookings = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings`);
+            const res = await fetch(`http://localhost:5000/booking?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -38,7 +40,7 @@ const MyOrders = () => {
                                     <div className="font-bold">{booking?.name}</div>
                                 </td>
                                 <td>
-                                    {booking?.price}
+                                    {booking?.productPrice}
                                 </td>
                                 <td className=''>
 

@@ -9,6 +9,7 @@ import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import SellerRoute from "./SellerRoute/SellerRoute";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -54,19 +55,19 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard/addproduct',
-                element: <AddProducts />
+                element: <SellerRoute> <AddProducts /></SellerRoute>
             },
             {
                 path: '/dashboard/myproduct',
-                element: <MyProducts />
+                element: <SellerRoute><MyProducts /></SellerRoute>
             },
             {
                 path: '/dashboard/allsellers',
-                element: <AllSellers />
+                element: <SellerRoute><AllSellers /></SellerRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <AllBuyers />
+                element: <SellerRoute><AllBuyers /></SellerRoute>
             },
             {
                 path: '/dashboard/mybookings',
