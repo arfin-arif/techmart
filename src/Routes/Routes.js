@@ -1,4 +1,9 @@
 import DashboardLayout from "../layout/DashboardLayout";
+import Blog from "../Pages/Blog/Blog";
+import Blog01 from "../Pages/Blog/Blog01";
+import Blog02 from "../Pages/Blog/Blog02";
+import Blog03 from "../Pages/Blog/Blog03";
+import Blog04 from "../Pages/Blog/Blog04";
 import CategoryWiseProducts from "../Pages/CategoryWiseProducts/CategoryWiseProducts";
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
@@ -10,6 +15,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
 
@@ -34,10 +40,34 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp />
             },
+            {
+                path: '/signup',
+                element: <SignUp />
+            },
+            {
+                path: '/blog',
+                element: <Blog />
+            },
+            {
+                path: '/blog/1',
+                element: <Blog01 />
+            },
+            {
+                path: '/blog/2',
+                element: <Blog02 />
+            },
+            {
+                path: '/blog/3',
+                element: <Blog03 />
+            },
+            {
+                path: '/blog/4',
+                element: <Blog04 />
+            },
 
             {
                 path: '/category/:id',
-                element: <CategoryWiseProducts />,
+                element: <PrivateRoute><CategoryWiseProducts /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/category?category_id=${params.id}`)
 
             },

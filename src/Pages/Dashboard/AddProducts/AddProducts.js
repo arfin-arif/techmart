@@ -48,11 +48,11 @@ const AddProducts = () => {
     }
     return (
         <div className='flex flex-col max-w-[1000px] mx-auto overflow-hidden bg-white rounded-lg shadow-lg  md:flex-row  mb-10 mt-10 '>
-            <div class="md:flex md:items-center md:justify-center md:w-1/2  bg-slate-300">
-                <div class="px-6 py-6 md:px-8 md:py-0">
-                    <h2 class="text-lg font-bold">Add Your  <span class="text-blue-600 dark:text-blue-400 md:text-blue-300">Products</span> Get Paid</h2>
+            <div className="md:flex md:items-center md:justify-center md:w-1/2  bg-slate-300">
+                <div className="px-6 py-6 md:px-8 md:py-0">
+                    <h2 className="text-lg font-bold">Add Your  <span className="text-blue-600 dark:text-blue-400 md:text-blue-300">Products</span> Get Paid</h2>
 
-                    <p class="mt-2 text-sm">We Not Only Sell Products We Sell Security Also , Start Your Journey With Us</p>
+                    <p className="mt-2 text-sm">We Not Only Sell Products We Sell Security Also , Start Your Journey With Us</p>
                 </div>
             </div>
             <form onSubmit={handleSubmit(handleAddProducts)} className='pt-5 pb-5 pl-5 w-full'>

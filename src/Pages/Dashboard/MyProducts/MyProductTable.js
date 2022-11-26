@@ -28,7 +28,7 @@ const MyProductTable = ({ product, index, handleDeleteProduct }) => {
             image,
         }
         console.log(product);
-        // save doctor information
+        // save product promotion information
         fetch('http://localhost:5000/advertised', {
             method: 'POST',
             headers: {

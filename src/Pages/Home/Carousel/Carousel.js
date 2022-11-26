@@ -42,7 +42,7 @@ const Carousel = () => {
     ]
 
     return (
-        <div className="carousel w-full">
+        <div className="carousel w-full ">
 
             {
                 bannerData.map(slider =>
