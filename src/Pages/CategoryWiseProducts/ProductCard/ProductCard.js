@@ -4,7 +4,7 @@ const ProductCard = ({ product, setProductInfo }) => {
     const { image, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, location, phone, price, condition, name } = product
     return (
         <div class="w-full max-w-sm overflow-hidden rounded-lg bg-base-100 shadow-lg">
-            <img class="object-cover object-center w-full h-56" src={image} alt="avatar" />
+            <img class="object-cover object-center w-full " src={image} alt="avatar" />
 
             {/* <div class="flex items-center px-6 py-3">
             <h1 class="mx-3 text-lg font-semibold  ">$ { price}</h1>

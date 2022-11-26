@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
+import MyProductTable from './MyProductTable';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext)
@@ -29,36 +30,33 @@ const MyProducts = () => {
 
     }
 
+
+
+
     if (isLoading) {
         return <Loading></Loading>
     }
     return (
         <div className="overflow-x-auto mb-5">
-
             <table className="table w-full">
-
                 <thead>
                     <tr>
                         <th></th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Status</th>
+                        <th>Promote</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
-
+                <tbody >
                     {
-                        products?.map((product, index) => <tr key={product._id} className='hover' >
-                            <th>{index + 1}</th>
-                            <td>{product.name}</td>
-                            <td>{product.price} </td>
-                            <td>Available</td>
-                            <td ><label onClick={() => handleDeleteProduct(product._id)} className='btn btn-sm' htmlFor="">X</label></td>
-                        </tr>)
-
+                        products.map((product, index) => <MyProductTable
+                            key={product._id}
+                            product={product}
+                            index={index}
+                            handleDeleteProduct={handleDeleteProduct}></MyProductTable>)
                     }
-
                 </tbody>
             </table>
         </div>

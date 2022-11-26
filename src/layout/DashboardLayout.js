@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaCartPlus, FaUserAlt } from 'react-icons/fa';
+import { FaCartPlus, FaProductHunt, FaUserAlt } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
@@ -39,9 +39,9 @@ const DashboardLayout = () => {
                                     {
                                         isAdmin &&
                                         <>
-                                            <div class="flex items-center px-4 py-2 t" href="#">
+                                            {/* <div class="flex items-center px-4 py-2 t" href="#">
                                                 <span class="mx-4 font-medium">Dashboard</span>
-                                            </div>
+                                            </div> */}
 
                                             <div class="flex items-center px-4 py-2 mt-5 " >
                                                 <FaUserAlt></FaUserAlt>
@@ -58,11 +58,17 @@ const DashboardLayout = () => {
                                     }
                                     {
                                         isSeller &&
-                                        <div class="flex items-center px-4 py-2 mt-5 " >
-                                            <FaUserAlt></FaUserAlt>
-                                            <span class="mx-4 font-medium">  <Link to='/dashboard/allbuyers'>My Product </Link></span>
+                                        <>
+                                            <div class="flex items-center px-4 py-2 mt-5 " >
+                                                <FaProductHunt></FaProductHunt>
+                                                <span class="mx-4 font-medium">  <Link to='/dashboard/addproduct'>Add Product </Link></span>
+                                            </div>
+                                            <div class="flex items-center px-4 py-2 mt-5 " >
+                                                <FaUserAlt></FaUserAlt>
+                                                <span class="mx-4 font-medium">  <Link to='/dashboard/myproduct'>My Product </Link></span>
+                                            </div>
 
-                                        </div>
+                                        </>
                                     }
 
                                 </nav>

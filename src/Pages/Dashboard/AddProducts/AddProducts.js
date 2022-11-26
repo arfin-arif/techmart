@@ -42,7 +42,7 @@ const AddProducts = () => {
             .then(result => {
                 console.log(result);
                 toast.success('Successfully added')
-                navigate('/myproduct')
+                navigate('/dashboard/myproduct')
             })
 
     }
