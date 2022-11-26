@@ -24,13 +24,13 @@ const ProductCategories = () => {
                 categories.map(category => <section className="">
                     <div className="container px-6 py-10 mx-auto ">
 
-                        <div className="bg-slate-400 flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-base-300 dark:border-gray-700 dark:hover:border-transparent">
+                        <div className="bg-sky-100 flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-base-300 dark:border-gray-700 dark:hover:border-transparent">
                             <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={category.image} alt="" />
 
-                            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-black">{category.title}</h1>
+                            <h1 className="mt-4 text-2xl font-semibold text-gray-700  dark:text-white group-hover:text-black">{category.title}</h1>
 
 
-                            <button className='btn btn-accent  hover:bg-accent-focus'> <Link to={`/category/${category._id}`}>All Products</Link></button>
+                            <button className='btn btn-success  hover:btn-success-focus'> <Link to={`/category/${category._id}`}>All Products</Link></button>
                         </div>
 
                     </div>

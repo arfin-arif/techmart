@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const MyProductTable = ({ product, index, handleDeleteProduct }) => {
-    const { image, buyingPrice, yearsOfUse, category_id, seller, sellerEmail, dateOfPost, purchaseYear, description, location: sellerLocation, phone, price, condition, name } = product
+    const { image, buyingPrice, yearsOfUse, category_id, seller, sellerEmail, dateOfPost, purchaseYear, description, sellerLocation, phone, price, condition, name } = product
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'

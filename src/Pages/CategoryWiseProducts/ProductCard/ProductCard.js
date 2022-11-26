@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaClock, FaMapMarkerAlt, FaPhone, FaPhoneAlt, FaUserAlt } from 'react-icons/fa';
 const ProductCard = ({ product, setProductInfo }) => {
-    const { image, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, location, phone, price, condition, name } = product
+    const { image, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, sellerLocation, phone, price, condition, name } = product
     return (
         <div class="w-full max-w-sm overflow-hidden rounded-lg bg-base-100 shadow-lg">
             <img class="object-cover object-center w-full " src={image} alt="avatar" />
@@ -27,7 +27,7 @@ const ProductCard = ({ product, setProductInfo }) => {
                 <div class="flex justify-between mt-4    ">
                     <div className="flex">
                         <FaMapMarkerAlt></FaMapMarkerAlt>
-                        <h1 class="px-2 text-sm">{location} </h1>
+                        <h1 class="px-2 text-sm">{sellerLocation} </h1>
 
                     </div>
                     <div className="flex">

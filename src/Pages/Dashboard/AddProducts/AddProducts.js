@@ -21,7 +21,7 @@ const AddProducts = () => {
             condition: data.condition,
             yearsOfUse: data.yearsOfUse,
             phone: data.phone,
-            location: data.location,
+            sellerLocation: data.location,
             description: data.description,
             purchaseYear: data.purchaseYear,
             dateOfPost: new Date(),
