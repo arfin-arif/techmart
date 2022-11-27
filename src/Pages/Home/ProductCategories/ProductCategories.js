@@ -21,7 +21,7 @@ const ProductCategories = () => {
 
 
             {
-                categories.map(category => <section className="">
+                categories.map(category => <section key={category._id} className="">
                     <div className="container px-6 py-10 mx-auto ">
 
                         <div className="bg-sky-100 flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-base-300 dark:border-gray-700 dark:hover:border-transparent">

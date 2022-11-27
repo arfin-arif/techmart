@@ -1,47 +1,29 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaClock, FaMapMarkerAlt, FaPhoneAlt, FaUserAlt } from 'react-icons/fa';
 const ProductCard = ({ product, setProductInfo }) => {
     const { image, _id, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, sellerLocation, phone, price, condition, name } = product
-
-    const reportProduct = () => {
-
-        const reportedItem = {
-            reportedProductId: _id,
-            name,
-            price,
-            seller
-        }
-        console.log(reportedItem)
-        fetch(`http://localhost:5000/report`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reportedItem)
+    const handleReport = id => {
+        fetch(`http://localhost:5000/products/report/${id}`, {
+            method: "PUT",
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    toast.success('Reported to the Admin')
-
-                }
-                else {
-                    toast.error(data.message)
+                if (data.modifiedCount > 0) {
+                    toast.success('Successfully Change Status')
+                    console.log(data);
                 }
             })
-
-
-
     }
+
     return (
         <div className=" w-full mt-0  max-w-sm overflow-hidden rounded-lg bg-base-100  shadow-lg">
-            <img className="mt-0 object-cover  object-center w-full " src={image} alt="avatar" />
+            <img className="mt-0  object-fill max-h-48 w-96  object-center max-h-60  " src={image} alt="avatar" />
             <div className="px-6 py-4">
                 <h1 className="text-xl font-semibold  ">{name} </h1>
                 <p className='text-lg font-semibold '>$ {price}</p>
-                <p className="py-2   ">{description} </p>
+                <p className="py-2   ">{description?.slice(0, 100)} ... </p>
                 <div className="flex justify-between mt-4    ">
                     <div className="flex">
                         <p><strong>Original:</strong> $</p>
@@ -57,7 +39,7 @@ const ProductCard = ({ product, setProductInfo }) => {
                         <h1 className="px-2 text-sm">{sellerLocation} </h1>
                     </div>
                     <div className="flex">
-                        <FaUserAlt></FaUserAlt>
+                        <FaUserAlt />
                         <h1 className="px-2 text-sm">{seller}</h1>
                     </div>
                 </div>
@@ -71,8 +53,6 @@ const ProductCard = ({ product, setProductInfo }) => {
                         <h1 className="px-2 text-sm">{dateOfPost?.slice(0, 10)}</h1>
                     </div>
                 </div>
-
-
             </div>
             <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto ">
                 <div className="w-56 mt-4 overflow-hidden bg-sky-300 rounded-lg shadow-lg md:w-64">
@@ -80,7 +60,7 @@ const ProductCard = ({ product, setProductInfo }) => {
 
                     <div className="flex items-center justify-between px-3 py-2">
                         <button
-                            className="px-2 btn btn-sm  py-1 text-xs font-semibold uppercase "><label htmlFor="booking-modal" onClick={reportProduct}>Report</label>
+                            className="px-2 btn btn-sm  py-1 text-xs font-semibold uppercase "><label onClick={() => handleReport(_id)}>Report</label>
                         </button>
                         <button
                             className="px-2 btn btn-sm btn-success py-1 text-xs font-semibold uppercase "><label htmlFor="booking-modal" onClick={() => setProductInfo(product)}>Book Now</label>

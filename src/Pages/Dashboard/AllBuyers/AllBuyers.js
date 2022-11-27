@@ -17,6 +17,9 @@ const AllBuyers = () => {
     const handleDeleteProduct = (id) => {
         fetch(`http://localhost:5000/users/${id}`, {
             method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         }).then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
@@ -28,36 +31,38 @@ const AllBuyers = () => {
     }
 
     return (
-        <div className="overflow-x-auto mb-5">
+        <>
+            <h3 className='text-3xl font-semibold ml-4 mb-2'>All Buyers</h3>
+            <div className="overflow-x-auto mb-5">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <table className="table w-full">
+                        {
+                            buyers?.map((buyer, index) => <tr key={buyer._id} className='hover' >
+                                <th>{index + 1}</th>
+                                <td>{buyer.name}</td>
+                                <td>{buyer.email} </td>
+                                <td className='capitalize'>{buyer.role ? buyer.role : <p>Admin</p>} </td>
+                                <td ><label onClick={() => handleDeleteProduct(buyer._id)} className='btn btn-sm' htmlFor="">X</label></td>
 
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
+                            </tr>)
 
-                    {
-                        buyers?.map((buyer, index) => <tr key={buyer._id} className='hover' >
-                            <th>{index + 1}</th>
-                            <td>{buyer.name}</td>
-                            <td>{buyer.email} </td>
-                            <td>{buyer.role ? buyer.role : <p>Admin</p>} </td>
-                            <td ><label onClick={() => handleDeleteProduct(buyer._id)} className='btn btn-sm' htmlFor="">X</label></td>
+                        }
 
-                        </tr>)
+                    </tbody>
+                </table>
+            </div>
+        </>
 
-                    }
-
-                </tbody>
-            </table>
-        </div>
     );
 };
 

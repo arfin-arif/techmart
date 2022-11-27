@@ -25,7 +25,8 @@ const AddProducts = () => {
             description: data.description,
             purchaseYear: data.purchaseYear,
             dateOfPost: new Date(),
-            image: data.image
+            image: data.image,
+            status: 'ok'
         }
         console.log(product);
         // save doctor information
@@ -57,24 +58,28 @@ const AddProducts = () => {
             </div>
             <form onSubmit={handleSubmit(handleAddProducts)} className='pt-5 pb-5 pl-5 w-full'>
                 <div className="form-control  ">
-                    <label className="label"><span className="label-text"> Name</span></label>
+                    <label className="label"><span className="label-text"> Name Of the Product</span></label>
                     <input type='text' className='input input-bordered w-full'
                         {...register("name", { required: " * Name is Required" })} />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text">Selling price</span></label>
-                    <input type='text' className='input input-bordered w-full'
+                    <input type='number' className='input input-bordered w-full'
                         {...register("price", { required: " * price is Required" })} />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text">Buying price</span></label>
-                    <input type='text' className='input input-bordered w-full'
+                    <input type='number' className='input input-bordered w-full'
                         {...register("buyingPrice", { required: " * buyingPrice is Required" })} />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text"> condition</span></label>
-                    <input type='text' className='input input-bordered w-full'
-                        {...register("condition", { required: " * condition is Required" })} />
+                    <select    {...register("condition")} className="select select-bordered w-full 5">
+                        <option  >Excellent</option>
+                        <option >Good</option>
+                        <option >Fair</option>
+
+                    </select>
                 </div>
                 <div className="form-control w-full ">
                     <label className="label"><span className="label-text"> Years Of Use</span></label>
@@ -103,7 +108,6 @@ const AddProducts = () => {
                         <option value='637f4cb6ddeb9d322910ec5f' >iPhone</option>
                         <option value='637f4cb6ddeb9d322910ec60'>Xiaomi</option>
                         <option value='637f4cb6ddeb9d322910ec61'>Symphony</option>
-
                     </select>
                 </div>
 

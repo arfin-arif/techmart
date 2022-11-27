@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const { createUser, updateUser, googleLogin, } = useContext(AuthContext)
@@ -11,13 +12,13 @@ const SignUp = () => {
     const provider = new GoogleAuthProvider()
     const [signUpError, setSignUpError] = useState('')
     const [createdUserEmail, setCreatedUserEmail] = useState('')
-
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
     const location = useLocation()
-
     const from = location?.state?.from?.pathname || '/'
-
-
+    if (token) {
+        navigate('/')
+    }
     const handleLSignup = data => {
         console.log(data)
         setSignUpError('')
@@ -25,7 +26,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Created')
+                toast('User Created!')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -43,7 +44,7 @@ const SignUp = () => {
     }
 
     const storeUserInfo = (name, email, role) => {
-        const user = { name, email, role };
+        const user = { name, email, role, status: 'notVerified' };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -54,13 +55,13 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
-                // navigate('/')
             })
     };
 
     const handleGoogleLogin = () => {
         googleLogin(provider).then(result => {
             console.log(result);
+            navigate('/')
         })
     }
 

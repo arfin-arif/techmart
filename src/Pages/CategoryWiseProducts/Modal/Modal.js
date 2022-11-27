@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Modal = ({ productInfo, setProductInfo }) => {
     const { user } = useContext(AuthContext)
-    const { image, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, location, phone, price, condition, name } = productInfo
+    const { image, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, location: sellerLocation, phone, price, condition, name, _id } = productInfo
+
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
@@ -21,7 +26,8 @@ const Modal = ({ productInfo, setProductInfo }) => {
             buyerPhone,
             buyerLocation,
             image,
-            name
+            name,
+            productId: _id
         }
         fetch(`http://localhost:5000/bookings`, {
             method: 'POST',
@@ -35,7 +41,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
                 console.log(data)
                 if (data.acknowledged) {
                     toast.success('Booking Confirmed')
-
+                    navigate('/dashboard/mybookings')
                 }
                 else {
                     toast.error(data.message)

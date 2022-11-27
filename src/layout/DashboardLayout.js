@@ -3,6 +3,7 @@ import { FaCartPlus, FaProductHunt, FaUserAlt } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
+import useBuyer from '../hooks/useBuyer';
 import useSeller from '../hooks/useSeller';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
@@ -10,6 +11,7 @@ const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
     const [isSeller] = useSeller(user?.email)
+    const [isUser] = useBuyer(user?.email)
 
     return (
         <div>
@@ -32,10 +34,13 @@ const DashboardLayout = () => {
                             </div>
                             <div className="flex flex-col justify-between flex-1 mt-6">
                                 <nav>
-                                    <div className="flex items-center px-4 py-2 mt-5 " href="#">
-                                        <FaCartPlus></FaCartPlus>
-                                        <span className="mx-4 font-medium"><Link to='/dashboard/mybookings'> My Bookings</Link></span>
-                                    </div>
+                                    {isUser &&
+                                        <div className="flex items-center px-4 py-2 mt-5 " href="#">
+                                            <FaCartPlus></FaCartPlus>
+                                            <span className="mx-4 font-medium"><Link to='/dashboard/mybookings'> My Bookings</Link></span>
+                                        </div>
+
+                                    }
                                     {
                                         isAdmin &&
                                         <>
@@ -53,7 +58,15 @@ const DashboardLayout = () => {
                                                     <FaUserAlt></FaUserAlt>
                                                     <span className="mx-4 font-medium">  All Buyers</span>
 
-                                                </div></Link>
+                                                </div>
+                                            </Link>
+                                            <Link to='/dashboard/reports'>
+                                                <div className="flex items-center px-4 py-2 mt-5 " >
+                                                    <FaUserAlt></FaUserAlt>
+                                                    <span className="mx-4 font-medium"> Reported Items</span>
+
+                                                </div>
+                                            </Link>
                                         </>
                                     }
                                     {
