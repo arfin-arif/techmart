@@ -12,7 +12,7 @@ const ReportedProduct = () => {
     const { data: reportedProducts = [], refetch, isLoading } = useQuery({
         queryKey: ['reportedProducts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reportedItems?status=reported');
+            const res = await fetch('http://localhost:5000/reportedItems?report=reported');
             const data = await res.json();
             return data;
         }

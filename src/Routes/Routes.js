@@ -8,7 +8,6 @@ import CategoryWiseProducts from "../Pages/CategoryWiseProducts/CategoryWiseProd
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Payment from "../Pages/Dashboard/Payment/Payment";
@@ -17,7 +16,6 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import AdminRoute from "./AdminRoute/AdminRoute";
-import BuyerRoute from "./BuyerRoute/BuyerRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
@@ -43,10 +41,7 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp />
             },
-            {
-                path: '/signup',
-                element: <SignUp />
-            },
+
             {
                 path: '/blog',
                 element: <Blog />
@@ -109,11 +104,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/mybookings',
-                element: <BuyerRoute><MyOrders /></BuyerRoute>
+                element: <MyOrders />
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <BuyerRoute> <Payment></Payment> </BuyerRoute>,
+                element: <Payment></Payment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             },
         ]

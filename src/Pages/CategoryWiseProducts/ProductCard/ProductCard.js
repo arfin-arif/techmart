@@ -11,7 +11,7 @@ const ProductCard = ({ product, setProductInfo }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast.success('Successfully Change Status')
+                    toast.success('Your Report will solve admin')
                     console.log(data);
                 }
             })

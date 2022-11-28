@@ -34,7 +34,7 @@ const DashboardLayout = () => {
                             </div>
                             <div className="flex flex-col justify-between flex-1 mt-6">
                                 <nav>
-                                    {isUser &&
+                                    {!isAdmin && !isSeller &&
                                         <div className="flex items-center px-4 py-2 mt-5 " href="#">
                                             <FaCartPlus></FaCartPlus>
                                             <span className="mx-4 font-medium"><Link to='/dashboard/mybookings'> My Bookings</Link></span>

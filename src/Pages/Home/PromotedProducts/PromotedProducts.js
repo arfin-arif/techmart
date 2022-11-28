@@ -10,7 +10,11 @@ const PromotedProducts = () => {
     const { data: promotedProduct = [], refetch, isLoading } = useQuery({
         queryKey: ['promotedProduct'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/promotedProducts?promotion=promoted');
+            const res = await fetch('http://localhost:5000/promotedProducts?promotion=promoted', {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
