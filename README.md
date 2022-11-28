@@ -14,16 +14,16 @@
 
 
 ## Fetaures
-This Projrect I build in  MERN stack with complatly dashboard and admin actions
-1.User can create seller or user(buyer) account with email password;
-2.Using google login will be count as a buyer
-3. buyer can make any order or report to any products
-4. 4.On dashboard he/she will see his orders under myBookings tab
-5. Seller can add his product 
-6. after adding succesfuly he will be able to see his all product user my product route
-7. If he want he can delete his products
-8. Admin can see all buyer seller and all admins,if he want he can delete any buyer or seller
-9. If any user report a product admin will se it on reported product if he want he can remove that product
+##### This Projrect I build in  MERN stack with complatly dashboard and admin actions
+###### 1.User can create seller or user(buyer) account with email password;
+###### 2.Using google login will be count as a buyer
+###### 3. buyer can make any order or report to any products
+###### 4. 4.On dashboard he/she will see his orders under myBookings tab
+###### 5. Seller can add his product 
+###### 6. after adding succesfuly he will be able to see his all product user my product route
+###### 7. If he want he can delete his products
+###### 8. Admin can see all buyer seller and all admins,if he want he can delete any buyer or seller
+###### 9. If any user report a product admin will se it on reported product if he want he can remove that product
 
 
 ### Admin Credentials
