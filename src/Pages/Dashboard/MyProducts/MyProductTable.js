@@ -10,7 +10,7 @@ const MyProductTable = ({ product, index, handleDeleteProduct, refetch }) => {
 
     // add promotion
     const handlePromotoe = id => {
-        fetch(`http://localhost:5000/products/promote/${id}`, {
+        fetch(`https://techmart-server.vercel.app/products/promote/${id}`, {
             method: "PUT",
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ const MyProductTable = ({ product, index, handleDeleteProduct, refetch }) => {
     //     }
     //     console.log(product);
     //     // save product promotion information
-    //     fetch('http://localhost:5000/advertised', {
+    //     fetch('https://techmart-server.vercel.app/advertised', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json',

@@ -45,7 +45,7 @@ const SignUp = () => {
 
     const storeUserInfo = (name, email, role) => {
         const user = { name, email, role, status: 'notVerified' };
-        fetch('http://localhost:5000/users', {
+        fetch('https://techmart-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ const SignUp = () => {
                     </div>
 
 
-                    <input className='btn btn-accent w-full' value='Sign Up' type="submit" />
+                    <input className='btn btn-success w-full' value='Sign Up' type="submit" />
                     <p className='text-red-400'>{signUpError} </p>
                 </form>
                 <p>Already Have Account? <Link className='text-blue-500' to='/login'>Log In Now</Link></p>

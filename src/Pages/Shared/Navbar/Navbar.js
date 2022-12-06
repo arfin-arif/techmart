@@ -18,8 +18,6 @@ const Navbar = () => {
             {user?.uid ?
                 <>
                     <>
-
-
                         <li><Link to='/dashboard'>Dashboard</Link></li>
                         <li onClick={handleLogOut}><Link to='/login'>Sign Out</Link></li>
 
@@ -34,7 +32,7 @@ const Navbar = () => {
         </>
 
     return (
-        <div className="navbar  sticky top-0 z-50 bg-base-100 ">
+        <div className="navbar sticky top-0 z-50 bg-slate-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,7 +46,7 @@ const Navbar = () => {
                 <img src={logo} className='h-12' alt="" />
             </div>
             <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu font-medium menu-horizontal p-0">
                     {menuItems}
                 </ul>
             </div>

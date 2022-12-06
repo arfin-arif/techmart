@@ -10,7 +10,7 @@ const MyProducts = () => {
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products?sellerEmail=${user?.email}`);
+            const res = await fetch(`https://techmart-server.vercel.app/products?sellerEmail=${user?.email}`);
 
             const data = await res.json();
             return data;
@@ -18,7 +18,7 @@ const MyProducts = () => {
 
     })
     const handleDeleteProduct = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://techmart-server.vercel.app/products/${id}`, {
             method: 'DELETE',
         }).then(res => res.json())
             .then(data => {

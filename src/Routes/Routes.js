@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><CategoryWiseProducts /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category?category_id=${params.id}`)
+                loader: ({ params }) => fetch(`https://techmart-server.vercel.app/category?category_id=${params.id}`)
 
             },
             {
@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
                 path: '/dashboard/addproduct',
@@ -109,7 +109,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://techmart-server.vercel.app/bookings/${params.id}`)
             },
         ]
 

@@ -16,7 +16,7 @@ const CheckoutForm = ({ booked, handleDeletePaidProduct }) => {
     const price = parseInt(productPrice)
     useEffect(() => {
 
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://techmart-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-Type": "application/json",
@@ -79,7 +79,7 @@ const CheckoutForm = ({ booked, handleDeletePaidProduct }) => {
                 bookingId: _id,
             }
 
-            fetch('http://localhost:5000/payments', {
+            fetch('https://techmart-server.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

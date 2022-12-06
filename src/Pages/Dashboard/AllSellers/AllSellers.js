@@ -8,7 +8,7 @@ const AllSellers = () => {
         queryFn: async () => {
             try {
 
-                const res = await fetch(`http://localhost:5000/allsellers?role=Seller`,
+                const res = await fetch(`https://techmart-server.vercel.app/allsellers?role=Seller`,
                     {
                         headers: {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -25,7 +25,7 @@ const AllSellers = () => {
     })
 
     const handleDeleteSeller = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://techmart-server.vercel.app/users/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -42,14 +42,28 @@ const AllSellers = () => {
 
     // to change status 
     const handleVerify = id => {
-        fetch(`http://localhost:5000/seller/verify/${id}`, {
+        fetch(`https://techmart-server.vercel.app/seller/verify/${id}`, {
             method: "PUT",
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success('Successfully Verified')
-                    // refetch();
+                    refetch();
+                    console.log(data);
+                }
+            })
+    }
+    // to change status of product 
+    const handleProductStatus = email => {
+        fetch(`https://techmart-server.vercel.app/seller/verifyOnProduct/${email}`, {
+            method: "PUT",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+
+                    refetch();
                     console.log(data);
                 }
             })
@@ -80,7 +94,7 @@ const AllSellers = () => {
                                 <td>{seller.name}</td>
                                 <td>{seller.email} </td>
                                 <td>{seller.role} </td>
-                                <td><label className='btn btn-xs' onClick={() => handleVerify(seller._id)}>{seller.status}</label> </td>
+                                <td><label className='btn btn-xs' onClick={() => { handleVerify(seller._id); handleProductStatus(seller.email) }}>{seller.status}</label> </td>
                                 <td ><label onClick={() => handleDeleteSeller(seller._id)} className='btn btn-sm' htmlFor="">X</label></td>
 
                             </tr>)

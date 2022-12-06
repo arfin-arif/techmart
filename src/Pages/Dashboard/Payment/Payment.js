@@ -12,7 +12,7 @@ const Payment = () => {
     console.log(booked);
 
     const handleDeletePaidProduct = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://techmart-server.vercel.app/products/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

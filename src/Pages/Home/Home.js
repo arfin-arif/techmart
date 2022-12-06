@@ -6,7 +6,7 @@ import WhyChoseUs from './WhyChoseUs/WhyChoseUs';
 
 const Home = () => {
     return (
-        <div className='mb-5'>
+        <div className="max-w-[1440px] mx-auto mb-5">
             <Carousel></Carousel>
             <ProductCategories></ProductCategories>
             <WhyChoseUs />

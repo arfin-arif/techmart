@@ -6,7 +6,7 @@ const AllBuyers = () => {
     const { data: buyers = [], refetch, isLoading } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allusers`, {
+            const res = await fetch(`https://techmart-server.vercel.app/allusers`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -19,7 +19,7 @@ const AllBuyers = () => {
 
 
     const handleDeleteProduct = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://techmart-server.vercel.app/users/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

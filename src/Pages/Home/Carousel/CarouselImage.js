@@ -5,7 +5,7 @@ const CarouselImage = ({ slider }) => {
     return (
         <div id={`slide${slider.id}`} className="carousel-item flex-none relative w-full">
             <div className='carousel-effect'>
-                <img src={slider.image} alt="" className=" grayscale   rounded-xl" />
+                <img src={slider.image} alt="" className="    rounded-xl" />
             </div>
             <div className="absolute  lg:justify-end transform -translate-y-1/3 top-2/4 left-5 md:left-10 lg:left-24">
                 <h1 className='text-white lg:text-6xl md:text-4xl text-2xl font-bold  '>

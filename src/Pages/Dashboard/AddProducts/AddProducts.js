@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -9,11 +10,26 @@ const AddProducts = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
+
+    const { data: seller = [], refetch, isLoading } = useQuery({
+        queryKey: ['seller'],
+        queryFn: async () => {
+            const res = await fetch(`https://techmart-server.vercel.app/sellerbyemail?email=${user.email}`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    const email = seller[0]?.email
+    const sellerId = seller[0]?._id
+
+
     const handleAddProducts = (data) => {
 
         const product = {
             name: data.name,
             category_id: data.category,
+            email,
+            sellerId,
             seller: user?.displayName,
             sellerEmail: user?.email,
             price: data.price,
@@ -30,7 +46,7 @@ const AddProducts = () => {
         }
         console.log(product);
         // save doctor information
-        fetch('http://localhost:5000/allproducts', {
+        fetch('https://techmart-server.vercel.app/allproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

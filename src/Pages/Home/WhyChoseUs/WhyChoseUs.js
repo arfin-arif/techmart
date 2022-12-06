@@ -3,9 +3,9 @@ import { FaShippingFast } from 'react-icons/fa';
 
 const WhyChoseUs = () => {
     return (
-        <div>
+        <>
 
-            <section className="bg-base-100">
+            <section className="bg-stone-100 rounded-xl">
                 <div className="container px-6 py-10 mx-auto">
                     <div className="text-center">
                         <h1 className="text-3xl font-semibold">We Provide High Quality Goods</h1>
@@ -16,7 +16,7 @@ const WhyChoseUs = () => {
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-                        <div className="p-8 space-y-3 border-2  rounded-xl">
+                        <div className="p-8 space-y-3 border-2 hover:bg-slate-300  rounded-xl">
                             <span className="inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -80,7 +80,7 @@ const WhyChoseUs = () => {
                 </div>
             </section>
 
-        </div>
+        </>
 
 
     );

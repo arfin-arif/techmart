@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaClock, FaMapMarkerAlt, FaPhoneAlt, FaUserAlt } from 'react-icons/fa';
+import { FaCheckCircle, FaClock, FaMapMarkerAlt, FaPhoneAlt, FaUserAlt } from 'react-icons/fa';
 const ProductCard = ({ product, setProductInfo }) => {
-    const { image, _id, buyingPrice, yearsOfUse, seller, dateOfPost, purchaseYear, description, sellerLocation, phone, price, condition, name } = product
+    const { image, _id, buyingPrice, yearsOfUse, status, seller, dateOfPost, purchaseYear, description, sellerLocation, phone, price, condition, name } = product
     const handleReport = id => {
-        fetch(`http://localhost:5000/products/report/${id}`, {
+        fetch(`https://techmart-server.vercel.app/products/report/${id}`, {
             method: "PUT",
         })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const ProductCard = ({ product, setProductInfo }) => {
                         <h1 className="px-2 text-sm">{sellerLocation} </h1>
                     </div>
                     <div className="flex">
-                        <FaUserAlt />
+                        {status === 'Verified Seller' && <  FaCheckCircle className='text-blue-300 text-xl'></FaCheckCircle>}
                         <h1 className="px-2 text-sm">{seller}</h1>
                     </div>
                 </div>

@@ -62,10 +62,10 @@ const Login = () => {
                             })} />
                         {errors.password && <p className='text-red-400'>{errors.password?.message}</p>}
 
-                        <label className="label"><span className="label-text"> Forget Password ?</span></label>
+
                     </div>
 
-                    <input className='btn btn-accent w-full' value='Login' type="submit" />
+                    <input className='btn btn-success mt-2 w-full' value='Login' type="submit" />
                 </form>
                 <p>New To Tech Mart? <Link className='text-blue-500' to='/signup'>SignUp Now</Link></p>
                 <div className="divider">OR</div>
